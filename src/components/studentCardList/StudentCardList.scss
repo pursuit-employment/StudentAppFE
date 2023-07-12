@@ -1,12 +1,12 @@
 .studentCardList {
-    width: 840px;
-    margin: 100px auto;
-    height: 80vh;
-    overflow-y: scroll;
-    border-radius: 15px;
-    box-shadow:  0 2px 6px rgb(169, 167, 167);
+  width: 840px;
+  margin: 100px auto;
+  height: 80vh;
+  overflow-y: scroll;
+  border-radius: 15px;
+  box-shadow: 0 2px 6px rgb(169, 167, 167);
 
-    & > * {
-        border-bottom: 1px solid lightgray;
-    }
+  //   & > * {
+  //     border-bottom: 1px solid lightgray;
+  //   }
 }

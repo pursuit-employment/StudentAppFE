@@ -16,6 +16,8 @@ const StudentCard = ({ student }) => {
         <div className="studentCard__name">
           {firstName} {lastName}
         </div>
+        <div className="studentC"></div>
+
         <div className="studentCard__studentDetail"> Email: {email} </div>
         <div className="studentCard__studentDetail"> Company: {company} </div>
         <div className="studentCard__studentDetail"> Skill: {skill} </div>
