@@ -1,0 +1,18 @@
+.searchBar {
+  padding: 0 10px 0;
+  background: white;
+  padding: 8px;
+  &__input {
+    width: 96%;
+    border: none;
+    height: 30px;
+    outline: none;
+    padding: 10px 15px;
+    border-bottom: 3px solid #999;
+    transition: all 0.5s ease;
+
+    &:focus {
+      border-bottom: 3px solid black;
+    }
+  }
+}

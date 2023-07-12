@@ -1,6 +1,6 @@
-import './App.scss';
+import "./App.scss";
 
-import StudentCardList from './components/studentCardList/StudentCardList';
+import StudentCardList from "./components/studentCardList/StudentCardList";
 
 function App() {
   return (
