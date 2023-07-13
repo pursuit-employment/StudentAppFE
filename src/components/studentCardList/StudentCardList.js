@@ -4,7 +4,7 @@ import StudentCard from "../studentCard/StudentCard";
 
 import './StudentCardList.scss';
 
-const StudentCardList = ({onSearch}) => {
+const StudentCardList = () => {
 
     // set hook for student data 
     const [students, setStudents] = useState([]);
@@ -23,9 +23,11 @@ const StudentCardList = ({onSearch}) => {
     const handleSearch = (e) => {
         setSearchStudents(e.target.value);
     }
-
+    // filtering through students
     const filteredStudents = students.filter(student => {
+        // create string with first and last name
         const fullName = `${student.firstName} ${student.lastName}`;
+        // return fullname to lower case using searchStudents data
         return fullName.toLowerCase().includes(searchStudents.toLowerCase());
       });
 
