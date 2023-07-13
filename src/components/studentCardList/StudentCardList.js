@@ -1,34 +1,42 @@
-import {useState, useEffect} from 'react';
-
+import { useState, useEffect } from "react";
+import axios from "axios";
 import StudentCard from "../studentCard/StudentCard";
+import StudentSearchBar from "../studentSearchBar/StudentSearchBar";
+import "./StudentCardList.scss";
 
-import './StudentCardList.scss';
+const StudentCardList = ({ student }) => {
+  // set hook for student data
+  const API = "https://api.hatchways.io/assessment/students";
+  const [studentMasterData, setStudentMasterData] = useState([]);
+  const [filteredStudentData, setFilteredStudentData] = useState([]);
 
-const StudentCardList = () => {
+  // fetch data from https://api.hatchways.io/assessment/students
+  useEffect(() => {
+    axios
+      .get(`${API}`)
+      .then((res) => {
+        // console.log("RES", res.data.students);
+        setStudentMasterData(res.data.students);
+        setFilteredStudentData(res.data.students);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  }, []);
 
-    // set hook for student data 
-    const [students, setStudents] = useState([]);
-
-    useEffect(() => {
-        // fetch data from https://api.hatchways.io/assessment/students
-        fetch('https://api.hatchways.io/assessment/students')
-        .then(response => response.json())
-        .then(data => {
-            // update hook with data
-            setStudents(data.students);
-        })
-    }, []);
-    
-
-    return (
-        <div className="studentCardList">
-            {/* map through data  */}
-            {students.map(student => {
-                // render a student card for every student
-                return (<StudentCard student={student} />)
-            })}
-        </div>
-    )
-}
+  //   console.log("STUDENT DATA", studentData);
+  return (
+    <div className="studentCardList">
+      <StudentSearchBar
+        studentMasterData={studentMasterData}
+        filteredStudentData={filteredStudentData}
+        setFilteredStudentData={setFilteredStudentData}
+      />
+      {filteredStudentData?.map((student) => {
+        return <StudentCard key={student.id} student={student} />;
+      })}
+    </div>
+  );
+};
 
 export default StudentCardList;
