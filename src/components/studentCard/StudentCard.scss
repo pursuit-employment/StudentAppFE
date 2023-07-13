@@ -53,7 +53,12 @@
     background-color: transparent;
 
     & img {
-      width: 45px;
+      width: 40px;
+      filter: opacity(0.5) grayscale(100%);
+    }
+
+    & img:hover {
+      filter: opacity(1) grayscale(100%);
     }
   }
 
