@@ -4,10 +4,11 @@ import StudentCard from "../studentCard/StudentCard";
 
 import './StudentCardList.scss';
 
-const StudentCardList = () => {
+const StudentCardList = ({onSearch}) => {
 
     // set hook for student data 
     const [students, setStudents] = useState([]);
+    const [searchStudents, setSearchStudents] = useState("")
 
     useEffect(() => {
         // fetch data from https://api.hatchways.io/assessment/students
@@ -19,14 +20,30 @@ const StudentCardList = () => {
         })
     }, []);
     
+    const handleSearch = (e) => {
+        setSearchStudents(e.target.value);
+    }
+
+    const filteredStudents = students.filter(student => {
+        const fullName = `${student.firstName} ${student.lastName}`;
+        return fullName.toLowerCase().includes(searchStudents.toLowerCase());
+      });
 
     return (
-        <div className="studentCardList">
+        <div className='searchbar'>
+            <input 
+                type="text" 
+                placeholder="search"
+                value={searchStudents}
+                onChange={handleSearch}/>
+        
+            <div className="studentCardList">
             {/* map through data  */}
-            {students.map(student => {
+            {filteredStudents.map(student => {
                 // render a student card for every student
                 return (<StudentCard student={student} />)
             })}
+            </div>
         </div>
     )
 }
