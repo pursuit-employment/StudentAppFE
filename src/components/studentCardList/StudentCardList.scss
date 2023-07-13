@@ -1,12 +1,20 @@
 .studentCardList {
+    background-color: white;
     width: 840px;
-    margin: 100px auto;
-    height: 80vh;
+    margin: 12vh auto;
+    border-radius: 10px;
+    // use vh for height
+    height: 76vh;
     overflow-y: scroll;
-    border-radius: 15px;
-    box-shadow:  0 2px 6px rgb(169, 167, 167);
+    box-shadow: 0 2px 6px rgb(169, 167, 167);
 
-    & > * {
-        border-bottom: 1px solid lightgray;
+    &__noSearchResults {
+        font-size: 32px;
+        text-align: center;
+        padding-top: 40px;
     }
+    // finds all children
+    // & > * {
+    //     border-bottom: 1px solid lightgrey;
+    // } 
 }
