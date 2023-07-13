@@ -1,10 +1,10 @@
-import './App.scss';
+import StudentCardList from './Components/StudentCardList/StudentCardList';
 
-import StudentCardList from './components/studentCardList/StudentCardList';
+import './App.scss';
 
 function App() {
   return (
-    <div>
+    <div className="App">
       <StudentCardList />
     </div>
   );

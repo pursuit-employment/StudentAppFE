@@ -1,34 +1,43 @@
-import {useState, useEffect} from 'react';
+import { useState, useEffect } from "react";
+import axios from "axios";
+import StudentCard from "../StudentCard/StudentCard";
+import SearchFilter from "../SearchFilter/SearchFilter";
+import NoSearchResults from "./noSearchResults/NoSearchResults.js";
+import "./StudentCardList.scss";
 
-import StudentCard from "../studentCard/StudentCard";
+function StudentCardList() {
+  const [studentData, setStudentData] = useState([]);
+  const [searchResult, setSearchResult] = useState([]);
 
-import './StudentCardList.scss';
+  useEffect(() => {
+    axios
+      .get("https://api.hatchways.io/assessment/students")
+      .then(({ data }) => {
+        setStudentData(data.students);
+        setSearchResult(data.students);
+      })
+      .catch((err) => console.log(err));
+  }, []);
+  return (
+    <div className="student-card-list-container">
+      <SearchFilter 
+      students={studentData} 
+      setFunction={setSearchResult} />
 
-const StudentCardList = () => {
-
-    // set hook for student data 
-    const [students, setStudents] = useState([]);
-
-    useEffect(() => {
-        // fetch data from https://api.hatchways.io/assessment/students
-        fetch('https://api.hatchways.io/assessment/students')
-        .then(response => response.json())
-        .then(data => {
-            // update hook with data
-            setStudents(data.students);
-        })
-    }, []);
-    
-
-    return (
-        <div className="studentCardList">
-            {/* map through data  */}
-            {students.map(student => {
-                // render a student card for every student
-                return (<StudentCard student={student} />)
-            })}
-        </div>
-    )
+      <section className="student-cards">
+        {
+        searchResult.length === 0 ? (
+          <NoSearchResults />
+        ) : (
+          searchResult.map(el => 
+          <StudentCard 
+          key={el.id} 
+          obj={el} />)
+        )
+        }
+      </section>
+    </div>
+  );
 }
 
 export default StudentCardList;

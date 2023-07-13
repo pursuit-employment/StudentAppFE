@@ -1,26 +1,50 @@
-import './StudentCard.scss';
+import { useState } from "react"
+import StudentGrades from "./studentGrades/StudentGrades";
+import {FaPlus, FaMinus} from "react-icons/fa"
+import "./StudentCard.scss";
 
-const StudentCard = ({student}) => {
+function StudentCard({obj}) {
+  const { city, company, email, firstName, grades, id, lastName, pic, skill} = obj
 
-    const {firstName, lastName, email, city, company, skill, pic, grades} = student;
+  const [showScores, setShowScores] = useState(false)
 
-    // use grades to calculate average
-    // render average below
+  const averageGrades = grades.reduce((acc,el) => 
+      acc+= +el
+  , 0) / (grades.length)
 
-    return (
-        <div className="studentCard">
-            <div className="studentCard__profileImage">
-                <img src={pic} alt="student profile image" />
-            </div>
-            <div className="studentCard__studentInfo">
-                <div className="studentCard__name">{firstName} {lastName}</div>
-                <div className="studentCard__studentDetail"> Email: {email} </div>
-                <div className="studentCard__studentDetail"> Company: {company} </div>
-                <div className="studentCard__studentDetail"> Skill: {skill} </div>
-                <div className="studentCard__studentDetail"> Average: 88.875% </div>
-            </div>
+  return (
+    <div className="studentCard">
+      <div className="studentCard_image-container">
+        <img
+          className="studentCard_image"
+          src={pic}
+          alt="student-pic"
+        />
+      </div>
+
+      <section className="studentCard_info">
+        <h2 className="studentCard_name"> {firstName} {lastName} </h2>
+        <div className="studentCard_info_details">
+          <span>Email: {email}</span>
+          <span>Company: {company}</span>
+          <span>Skill: {skill}</span>
+          <span>Average: {averageGrades}%</span>
+          {
+            showScores && 
+            <StudentGrades 
+            gradesArr={grades}
+            />
+          }
         </div>
-    )
+      </section>
+      
+      <button 
+      className="studentCard__grades-button"
+      onClick={(()=> setShowScores(!showScores))}>
+        { showScores ? <FaMinus /> : <FaPlus /> }
+      </button>
+    </div>
+  );
 }
 
 export default StudentCard;
