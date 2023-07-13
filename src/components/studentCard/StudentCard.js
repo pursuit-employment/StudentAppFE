@@ -46,7 +46,9 @@ const StudentCard = ({ student }) => {
           Average: {getAverageGrade(grades)}%
         </div>
         <br />
-        <div className="studentCard__grades">
+        <div
+          className={"studentCard__grades" + (showGrades ? " show" : " hide")}
+        >
           {showGrades &&
             grades.map((grade, i) => (
               <div className="studentCard__grade" key={i}>
