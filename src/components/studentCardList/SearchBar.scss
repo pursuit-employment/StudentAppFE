@@ -1,0 +1,19 @@
+.searchBar{
+    
+    input{
+        width: 96%;
+        margin: 0px;
+        padding: 15px;
+        border: none; 
+        height: 30px;
+        font-size: large;  
+        outline: none; 
+
+        &.hasValue {
+            margin-bottom: 0px;
+            border-bottom: 1px solid black;
+          }
+    
+    }
+
+}
