@@ -6,7 +6,7 @@ import minus from "../../assets/minus.svg";
 const StudentCard = ({ student }) => {
   const { firstName, lastName, email, city, company, skill, pic, grades } =
     student;
-  const [showScores, setShowScores] = useState(false);
+  const [showGrades, setShowGrades] = useState(false);
 
   function getAverageGrade(grades) {
     let total = 0;
@@ -28,10 +28,10 @@ const StudentCard = ({ student }) => {
           </div>
           <button
             className="studentCard__toggle"
-            value={showScores}
-            onClick={() => setShowScores(!showScores)}
+            value={showGrades}
+            onClick={() => setShowGrades(!showGrades)}
           >
-            {showScores ? (
+            {showGrades ? (
               <img src={minus} alt="minus" />
             ) : (
               <img src={plus} alt="plus" />
@@ -47,10 +47,10 @@ const StudentCard = ({ student }) => {
         </div>
         <br />
         <div className="studentCard__grades">
-          {showScores &&
+          {showGrades &&
             grades.map((grade, i) => (
               <div className="studentCard__grade" key={i}>
-                Test {i + 1} &nbsp; &nbsp; &nbsp;{grade} %
+                Test {i + 1}: &nbsp; &nbsp; &nbsp; &nbsp;{grade}%
               </div>
             ))}
         </div>
