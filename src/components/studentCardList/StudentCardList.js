@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 
 import StudentCard from "../studentCard/StudentCard";
+import SearchBar from "../searchBar/SearchBar";
 
 import "./StudentCardList.scss";
-import SearchBar from "../searchBar/SearchBar";
 
 const StudentCardList = () => {
   // set hook for student data
@@ -12,7 +12,6 @@ const StudentCardList = () => {
   const [searchResults, setSearchResults] = useState([]);
 
   useEffect(() => {
-    // fetch data from https://api.hatchways.io/assessment/students
     fetch("https://api.hatchways.io/assessment/students")
       .then((response) => response.json())
       .then((data) => {
