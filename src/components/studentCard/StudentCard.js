@@ -3,8 +3,8 @@ import StudentGrades from "./studentGrades/StudentGrades";
 import {FaPlus, FaMinus} from "react-icons/fa"
 import "./StudentCard.scss";
 
-function StudentCard({obj}) {
-  const { city, company, email, firstName, grades, id, lastName, pic, skill} = obj
+function StudentCard({studentObj}) {
+  const {company, email, firstName, grades, lastName, pic, skill} = studentObj
 
   const [showScores, setShowScores] = useState(false)
 

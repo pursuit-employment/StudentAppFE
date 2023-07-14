@@ -1,3 +1,4 @@
+import StudentDataProvider from './Providers/StudentDataProvider';
 import StudentCardList from './Components/StudentCardList/StudentCardList';
 
 import './App.scss';
@@ -5,7 +6,10 @@ import './App.scss';
 function App() {
   return (
     <div className="App">
-      <StudentCardList />
+      <StudentDataProvider>
+        <StudentCardList />
+      </StudentDataProvider>
+      
     </div>
   );
 }

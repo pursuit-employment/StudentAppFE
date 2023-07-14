@@ -1,28 +1,32 @@
-import { useState, useEffect } from "react";
-import axios from "axios";
+// import { useState, useEffect } from "react";
+// import axios from "axios";
+import { useStudentData } from '../../Providers/StudentDataProvider';
+import { v4 as uuidv4 } from 'uuid';
 import StudentCard from "../StudentCard/StudentCard";
 import SearchFilter from "../SearchFilter/SearchFilter";
 import NoSearchResults from "./noSearchResults/NoSearchResults.js";
 import "./StudentCardList.scss";
 
 function StudentCardList() {
-  const [studentData, setStudentData] = useState([]);
-  const [searchResult, setSearchResult] = useState([]);
+  const { studentDataArr, searchResult, setSearchResult,  } = useStudentData()
 
-  useEffect(() => {
-    axios
-      .get("https://api.hatchways.io/assessment/students")
-      .then(({ data }) => {
-        setStudentData(data.students);
-        setSearchResult(data.students);
-      })
-      .catch((err) => console.log(err));
-  }, []);
+  // const [studentData, setStudentData] = useState([]);
+  // const [searchResult, setSearchResult] = useState([]);
+
+  // useEffect(() => {
+  //   axios
+  //     .get("https://api.hatchways.io/assessment/students")
+  //     .then(({ data }) => {
+  //       setStudentData(data.students);
+  //       setSearchResult(data.students);
+  //     })
+  //     .catch((err) => console.log(err));
+  // }, []);
   return (
     <div className="student-card-list-container">
       <SearchFilter 
-      students={studentData} 
-      setFunction={setSearchResult} />
+      students={studentDataArr} 
+      setSearchResult={setSearchResult} />
 
       <section className="student-cards">
         {
@@ -31,8 +35,8 @@ function StudentCardList() {
         ) : (
           searchResult.map(el => 
           <StudentCard 
-          key={el.id} 
-          obj={el} />)
+          key={uuidv4()} 
+          studentObj={el} />)
         )
         }
       </section>

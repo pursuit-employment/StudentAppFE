@@ -1,44 +1,18 @@
 import { useState } from "react";
+import { handleSearchBar } from "./Functions/SearchFilterFunctions";
 import "./SearchFilter.scss";
 
-function SearchFilter({ setFunction, students }) {
+function SearchFilter({ setSearchResult, students }) {
   const [searchInput, setSearchInput] = useState("");
-
-  function handleSearchBar(e) {
-    const searchValue = e.target.value;
-    setSearchInput(searchValue);
-
-    if (!searchValue) {
-      setFunction(students);
-    } else {
-      const searchInputValuesArr = searchValue.toLowerCase().split(" ");
-      filterStudents(searchInputValuesArr, students, setFunction);
-    }
-  }
-
-  // Handle Student Filter function
-  function filterStudents(inputArr, studentArr, setFunction) {
-    const filteredStudents = studentArr.filter((student) => {
-      const first = student.firstName;
-      const last = student.lastName;
-      const fullName = `${first} ${last}`.toLowerCase();
-      const fullNameIncludesSearchValue = inputArr.every((el) =>
-        fullName.includes(el)
-      );
-      if (fullNameIncludesSearchValue) {
-        return student;
-      }
-    });
-    setFunction(filteredStudents);
-  }
 
   return (
     <label className="searchBar">
       <input
         type="text"
+        value={searchInput}
         placeholder="Search by name"
         className="searchBar_input"
-        onChange={(event) => handleSearchBar(event)}
+        onChange={(event) => handleSearchBar(event, setSearchInput, setSearchResult, students)}
       />
     </label>
   );
