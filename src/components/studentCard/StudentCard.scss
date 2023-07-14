@@ -12,11 +12,20 @@
       border-radius: 50%;
       overflow: hidden;
       margin-right: 40px;
+      margin-top: 10px; 
+      place-self: start;
   
       img {
         width: inherit;
         height: inherit;
       }
+    }
+  
+    &__studentInfoContainer {
+      display: flex;
+      width: 80%;
+      place-content: space-between;
+      align-items: start;
     }
   
     &__name {
@@ -31,6 +40,18 @@
       margin-left: 20px;
       margin-bottom: 4px;
       font-size: 1.1em;
+    }
+
+    &__scoreButton {
+      font-weight: 600;
+      font-size: 40px;
+      color: transparent;
+      text-shadow: 0 0 0 lightgrey;
+      
+      &:hover {       
+        cursor: pointer;
+        color: black;
+      }
     }
 }
   
