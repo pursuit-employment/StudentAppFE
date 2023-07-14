@@ -1,27 +1,26 @@
-.search-filter {
-    position: fixed;
-    width: inherit;
-    height: 5vh;
-    display: grid;
-    justify-items: center;
-    background-color: white;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-}
+.searchBar {
+  position: fixed;
+  width: inherit;
+  height: 5vh;
+  display: grid;
+  justify-items: center;
+  background-color: white;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
 
-.search-filter-searchbar {
-
+  &_input {
     width: 95%;
     border: none;
     border-bottom: 1px solid rgb(244, 242, 242);
     font-size: 18px;
     font-family: "Raleway";
+    &:focus {
+      outline: none;
+      border-bottom: 1px solid black;
+    }
+  }
 }
 
-.search-filter-searchbar:focus {
-    outline: none;
-    border-bottom: 1px solid black;
-}
 /* 
     Hide placeholder when input in focus
 .search-filter-searchbar:focus::placeholder{
