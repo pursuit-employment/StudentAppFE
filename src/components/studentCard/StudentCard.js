@@ -1,5 +1,5 @@
 import { useState } from "react"
-import StudentGrades from "./studentGrades/StudentGrades";
+import StudentGrades from "../studentGrades/StudentGrades";
 import {FaPlus, FaMinus} from "react-icons/fa"
 import "./StudentCard.scss";
 

@@ -1,8 +1,8 @@
-import { useStudentData } from "../../Providers/StudentDataProvider";
+import { useStudentData } from "../../providers/StudentDataProvider";
 import { v4 as uuidv4 } from "uuid";
-import StudentCard from "../StudentCard/StudentCard";
-import SearchFilter from "../SearchFilter/SearchFilter";
-import NoSearchResults from "./noSearchResults/NoSearchResults.js";
+import StudentCard from "../studentCard/StudentCard";
+import SearchFilter from "../searchFilter/SearchFilter";
+import NoSearchResults from "../noSearchResults/NoSearchResults";
 import "./StudentCardList.scss";
 
 function StudentCardList() {

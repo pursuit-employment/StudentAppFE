@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { handleSearchBar } from "./Functions/SearchFilterFunctions";
+import { handleSearchBar } from "../../functions/SearchFilterFunctions";
 import "./SearchFilter.scss";
 
 function SearchFilter({ setSearchResult, students }) {

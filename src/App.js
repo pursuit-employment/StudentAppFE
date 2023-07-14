@@ -1,5 +1,5 @@
-import StudentDataProvider from "./Providers/StudentDataProvider";
-import StudentCardList from "./Components/StudentCardList/StudentCardList";
+import StudentDataProvider from "./providers/StudentDataProvider";
+import StudentCardList from "./components/studentCardList/StudentCardList";
 import "./App.scss";
 
 function App() {
