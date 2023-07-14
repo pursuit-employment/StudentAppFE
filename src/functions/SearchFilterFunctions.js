@@ -20,9 +20,7 @@ function handleSearchBar(e, setInputFunction, setSearchResultsFunction, studentD
       const fullNameIncludesSearchValue = inputArr.every((el) =>
         fullName.includes(el)
       );
-      if (fullNameIncludesSearchValue) {
-        return student;
-      }
+      return fullNameIncludesSearchValue
     });
     setFunction(filteredStudents);
   }
