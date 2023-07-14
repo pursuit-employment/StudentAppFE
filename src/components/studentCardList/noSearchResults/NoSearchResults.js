@@ -1,8 +1,8 @@
 import "./NoSearchResults.scss"
 
-function NoSearchResults(props) {
+function NoSearchResults() {
     return (
-        <div className='no-search-results'>
+        <div className='noSearchResults'>
             <span>Student Not Found</span>
         </div>
     );

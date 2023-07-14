@@ -14,7 +14,7 @@ function StudentCard({studentObj}) {
 
   return (
     <div className="studentCard">
-      <div className="studentCard_image-container">
+      <div className="studentCard_imageContainer">
         <img
           className="studentCard_image"
           src={pic}
@@ -23,7 +23,7 @@ function StudentCard({studentObj}) {
       </div>
 
       <section className="studentCard_info">
-        <h2 className="studentCard_name"> {firstName} {lastName} </h2>
+        <h2 className="studentCard_info_name"> {firstName} {lastName} </h2>
         <div className="studentCard_info_details">
           <span>Email: {email}</span>
           <span>Company: {company}</span>
@@ -39,7 +39,7 @@ function StudentCard({studentObj}) {
       </section>
       
       <button 
-      className="studentCard__grades-button"
+      className="studentCard__gradesButton"
       onClick={(()=> setShowScores(!showScores))}>
         { showScores ? <FaMinus /> : <FaPlus /> }
       </button>

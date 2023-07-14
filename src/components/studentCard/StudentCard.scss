@@ -8,13 +8,13 @@
   padding: 10px 15px;
   padding-bottom: 0;
 
-  &_image-container {
+  &_imageContainer {
     grid-column: 1;
-    height:100px;
-    width:100px;
-    display:grid;
-    justify-items:center;
-    align-items:center;
+    height: 100px;
+    width: 100px;
+    display: grid;
+    justify-items: center;
+    align-items: center;
     border-radius: 50%;
     border: 1px solid rgb(200, 200, 200);
     margin-top: 2vh;
@@ -22,32 +22,18 @@
 
   &_image {
     border-radius: 50%;
-    height:70px;
-}
+    height: 70px;
+  }
 
   &_info {
     grid-column: 2;
-    display:grid;
+    display: grid;
     grid-template-rows: 1fr 3fr;
     height: 90%;
     row-gap: 15px;
     position: relative;
     top: 2vh;
 
-      &_details {
-        grid-row: 2;
-        display: flex;
-        flex-direction: column;
-        row-gap: 3px;
-        margin-left: 15px;
-        color: rgb(113, 113, 113);
-
-          & span:nth-of-type(4){
-            margin-bottom: 2vh;
-          }
-      }
-  }
-  
     &_name {
       grid-row: 1;
       margin: 0;
@@ -55,21 +41,36 @@
       font-family: sans-serif;
       font-weight: 900;
       text-transform: uppercase;
-    } 
-  &__grades-button {
+    }
+
+    &_details {
+      grid-row: 2;
+      display: flex;
+      flex-direction: column;
+      row-gap: 3px;
+      margin-left: 15px;
+      color: rgb(113, 113, 113);
+
+      & span:nth-of-type(4) {
+        margin-bottom: 2vh;
+      }
+    }
+  }
+
+  &__gradesButton {
     all: unset;
     align-self: flex-start;
     justify-self: right;
     margin-top: 2vh;
-      & svg {
-        width: 2em;
-        height: 2em;
-        color: gray;
+
+    & svg {
+      width: 2em;
+      height: 2em;
+      color: gray;
+      &:hover {
+        color: black;
+        cursor: pointer;
       }
-}
-  &__grades-button:hover svg {
-    color: black;
-    cursor: pointer;
+    }
   }
- 
 }

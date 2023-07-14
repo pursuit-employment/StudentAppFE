@@ -1,3 +1,4 @@
+import { v4 as uuidv4 } from 'uuid';
 import "./StudentGrades.scss"
 
 function StudentGrades({gradesArr}) {
@@ -6,7 +7,7 @@ function StudentGrades({gradesArr}) {
             {
                 gradesArr.map((el,i) => 
                 <section
-                key={i}
+                key={uuidv4()}
                 className="studentCardGrades__List">
                     <span>Test {i+1}:</span>
                     <span>{el}%</span>
