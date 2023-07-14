@@ -1,4 +1,4 @@
-import StudentDataProvider from "./providers/StudentDataProvider";
+import StudentDataProvider from "./providers/StudentDataProvider.js";
 import StudentCardList from "./components/studentCardList/StudentCardList";
 import "./App.scss";
 
