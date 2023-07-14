@@ -1,7 +1,7 @@
 .studentCardList {
   display: grid;
   grid-template-rows: 5vh 73vh;
-  border: 1px solid rgb(201, 200, 200);
+  border: 1px solid var(--studentLightGray);
   border-radius: 10px;
   overflow-y: scroll;
   height: 80vh;

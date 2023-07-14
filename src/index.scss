@@ -1,9 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
 
-// * {
-//     margin: 0;
-// }
+* {
+    --studentLightGray: rgb(200, 200, 200);    
+}
+// class for grid and items centered 
+.centeredGrid{
+    display: grid;
+    justify-items: center;
+    align-items: center;
+}
 
-// body {
-//     color: blue;
-// }
