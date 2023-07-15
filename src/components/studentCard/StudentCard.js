@@ -11,6 +11,12 @@ const StudentCard = ({student}) => {
         setShowScores(!showScores)
     }
 
+    function getAverageOfGrades(grades){
+        const totalSumOfGrades = grades.reduce((total, grade) => total + Number(grade), 0)
+
+        return (totalSumOfGrades / grades.length).toFixed(2)
+    }
+
     return (
         <div className="studentCard">
             <div className="studentCard__profileImage">
@@ -22,7 +28,7 @@ const StudentCard = ({student}) => {
                     <div className="studentCard__studentDetail"> Email: {email} </div>
                     <div className="studentCard__studentDetail"> Company: {company} </div>
                     <div className="studentCard__studentDetail"> Skill: {skill} </div>
-                    <div className="studentCard__studentDetail"> Average: 88.875% </div>
+                    <div className="studentCard__studentDetail"> Average: {grades ? getAverageOfGrades(grades) + '%' : 'Missing grades'} </div>
                     <div className="studentCard__studentDetail__scores">
                         <StudentScores grades={grades} showScores={showScores} />
                     </div>
