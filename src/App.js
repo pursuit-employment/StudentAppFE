@@ -1,11 +1,13 @@
-import './App.scss';
-
-import StudentCardList from './components/studentCardList/StudentCardList';
+import StudentDataProvider from "./providers/StudentDataProvider.js";
+import StudentCardList from "./components/studentCardList/StudentCardList";
+import "./App.scss";
 
 function App() {
   return (
-    <div>
-      <StudentCardList />
+    <div className="App centeredGrid">
+      <StudentDataProvider>
+        <StudentCardList />
+      </StudentDataProvider>
     </div>
   );
 }

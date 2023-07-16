@@ -1,34 +1,31 @@
-import {useState, useEffect} from 'react';
-
+import { useStudentData } from "../../providers/StudentDataProvider";
+import { v4 as uuidv4 } from "uuid";
 import StudentCard from "../studentCard/StudentCard";
+import SearchFilter from "../searchFilter/SearchFilter";
+import NoSearchResults from "../noSearchResults/NoSearchResults";
+import "./StudentCardList.scss";
 
-import './StudentCardList.scss';
+function StudentCardList() {
+  const { studentDataArr, searchResult, setSearchResult } = useStudentData();
 
-const StudentCardList = () => {
+  return (
+    <div className="studentCardList">
+      <SearchFilter
+        students={studentDataArr}
+        setSearchResult={setSearchResult}
+      />
 
-    // set hook for student data 
-    const [students, setStudents] = useState([]);
-
-    useEffect(() => {
-        // fetch data from https://api.hatchways.io/assessment/students
-        fetch('https://api.hatchways.io/assessment/students')
-        .then(response => response.json())
-        .then(data => {
-            // update hook with data
-            setStudents(data.students);
-        })
-    }, []);
-    
-
-    return (
-        <div className="studentCardList">
-            {/* map through data  */}
-            {students.map(student => {
-                // render a student card for every student
-                return (<StudentCard student={student} />)
-            })}
-        </div>
-    )
+      <section className="studentCardList_cards">
+        {searchResult.length === 0 ? (
+          <NoSearchResults />
+        ) : (
+          searchResult.map((el) => (
+            <StudentCard key={uuidv4()} studentObj={el} />
+          ))
+        )}
+      </section>
+    </div>
+  );
 }
 
 export default StudentCardList;

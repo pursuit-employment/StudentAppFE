@@ -1,0 +1,7 @@
+.studentCardGrades {
+  &__List {
+    width: 130px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
