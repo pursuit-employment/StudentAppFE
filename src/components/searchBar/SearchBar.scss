@@ -1,0 +1,11 @@
+.searchBar__input {
+  all: unset;
+  width: 120vh;
+  padding: 10px;
+  border-bottom: 1px solid gray;
+}
+
+.searchBar__input:focus {
+  border-bottom: 2px solid black;
+}
+∫
