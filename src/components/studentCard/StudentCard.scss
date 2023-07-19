@@ -11,7 +11,7 @@
       border: 1px solid #aaa;
       border-radius: 50%;
       overflow: hidden;
-      margin-right: 20px;
+      margin-right: 10px;
   
       img {
         width: inherit;
@@ -20,11 +20,12 @@
     }
   
     &__name {
-      width: 620px;
+      width: 600px;
       font-size: 40px;
       text-transform: uppercase;
       font-weight: 600;
       margin-bottom: 15px;
+      margin-left: 15px;
     }
   
     &__studentDetail {
@@ -38,11 +39,12 @@
       display: flex;
       justify-content: space-between;
     }
-    //TODO GET THE ICON TO APPEAR AT RIGHT END OF DIV
-    // &__showOrCollapseAllScoresIcon {
-    //   justify-self: flex-end;
-   
-    // }
+
+    &__showOrCollapseAllScoresIcon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    }
     
     &__studentInfo{
     color: #aaa;
