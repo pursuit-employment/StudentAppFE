@@ -1,7 +1,7 @@
 .studentCard {
     padding: 15px 25px;
     display: flex;
-    align-items: center;
+    align-items: start;
     font-family: "Raleway", sans-serif;
     background-color: white;
   
@@ -32,5 +32,39 @@
       margin-bottom: 4px;
       font-size: 1.1em;
     }
+
+    &__nameAndToggleAllScoresIconContainer{
+      display: flex;
+      justify-content: space-between;
+     
+    }
+    &__showOrCollapseAllScoresIcon {
+      justify-self: flex-end;
+   
+    }
+
+    &__score {
+      width: 120px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    &__studentInfo{
+    color: #aaa;
+   }
+
+   &__allScores li  {
+    list-style: none;
+    
+   }
+
+
+
+   
+  
+
+
+   
+         
 }
   

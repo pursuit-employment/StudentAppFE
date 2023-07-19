@@ -1,26 +1,76 @@
-import './StudentCard.scss';
+import { useState } from "react";
+import "./StudentCard.scss";
 
-const StudentCard = ({student}) => {
+const StudentCard = ({ student }) => {
+  const { firstName, lastName, email, city, company, skill, pic, grades } =
+    student;
+  const studentGrades = [...student.grades];
 
-    const {firstName, lastName, email, city, company, skill, pic, grades} = student;
+  const [toggleShowAllStudentScoresBool, setToggleShowAllStudentScoresBool] =
+    useState(false);
 
-    // use grades to calculate average
-    // render average below
+  const toggleShowAllStudentScores = () => {
+    setToggleShowAllStudentScoresBool(!toggleShowAllStudentScoresBool);
+  };
 
-    return (
-        <div className="studentCard">
-            <div className="studentCard__profileImage">
-                <img src={pic} alt="student profile image" />
-            </div>
-            <div className="studentCard__studentInfo">
-                <div className="studentCard__name">{firstName} {lastName}</div>
-                <div className="studentCard__studentDetail"> Email: {email} </div>
-                <div className="studentCard__studentDetail"> Company: {company} </div>
-                <div className="studentCard__studentDetail"> Skill: {skill} </div>
-                <div className="studentCard__studentDetail"> Average: 88.875% </div>
-            </div>
+  const calculateStudentGradeAverages = (studentGrades) => {
+    const studentGradesTotal = studentGrades?.reduce((acc, curr) => {
+      return (acc += Number(curr));
+    }, 0);
+    const studentGradesAverage = studentGradesTotal / studentGrades.length;
+    return studentGradesAverage?.toFixed(2);
+  };
+
+  return (
+    <div className="studentCard">
+      <div className="studentCard__profileImage">
+        <img src={pic} alt="student profile image" />
+      </div>
+      <div className="studentCard__studentInfo">
+        <div className="studentCard__nameAndToggleAllScoresIconContainer">
+          {" "}
+          <div className="studentCard__name">
+            {firstName} {lastName}
+          </div>
+          <button
+            className="studentCard__showOrCollapseAllScoresIcon"
+            onClick={toggleShowAllStudentScores}>
+            {toggleShowAllStudentScoresBool ? (
+              <span class="material-symbols-outlined">-</span>
+            ) : (
+              <span class="material-symbols-outlined">+</span>
+            )}
+          </button>
         </div>
-    )
-}
+
+        <div className="studentCard__studentDetail"> Email: {email} </div>
+        <div className="studentCard__studentDetail"> Company: {company} </div>
+        <div className="studentCard__studentDetail"> Skill: {skill} </div>
+        <div className="studentCard__studentDetail">
+          {" "}
+          Average: {calculateStudentGradeAverages(studentGrades)}%{" "}
+        </div>
+
+        {toggleShowAllStudentScoresBool && (
+          <div className="studentCard__allScores">
+            {grades.map((grade, idx) => {
+              const renderedIdx = idx + 1;
+              return (
+                <ul className="StudentCard__scoresList">
+                  <li>
+                    <div className="studentCard__score">
+                      <div>{`Grade ${renderedIdx}:`} </div>
+                      <div>{`${grade}%`}</div>
+                    </div>
+                  </li>
+                </ul>
+              );
+            })}
+          </div>
+        )}
+      </div>
+    </div>
+  );
+};
 
 export default StudentCard;
