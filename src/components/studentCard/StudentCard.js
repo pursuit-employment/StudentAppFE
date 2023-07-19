@@ -56,14 +56,13 @@ const StudentCard = ({ student }) => {
             {grades.map((grade, idx) => {
               const renderedIdx = idx + 1;
               return (
-                <ul className="StudentCard__scoresList">
-                  <li>
-                    <div className="studentCard__score">
-                      <div>{`Grade ${renderedIdx}:`} </div>
-                      <div>{`${grade}%`}</div>
-                    </div>
-                  </li>
-                </ul>
+                <div className="studentCard__score">
+                  <div className="studentCard__renderedIndex">
+                    {`Grade ${renderedIdx}:`}{" "}
+                  </div>{" "}
+                  <div className="studentCard__scoreSpacer" />
+                  <div className="studentCard__grade">{`${grade}%`}</div>
+                </div>
               );
             })}
           </div>
