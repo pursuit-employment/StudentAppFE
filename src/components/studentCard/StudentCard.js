@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./StudentCard.scss";
+import AddIcon from "@mui/icons-material/Add";
 
 const StudentCard = ({ student }) => {
   const { firstName, lastName, email, city, company, skill, pic, grades } =
@@ -37,18 +38,11 @@ const StudentCard = ({ student }) => {
             className="studentCard__showOrCollapseAllScoresIcon">
             {toggleShowAllStudentScoresBool ? (
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-                {" "}
-                Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com
-                License - https://fontawesome.com/license (Commercial License)
-                Copyright 2023 Fonticons, Inc.
-                <path d="M432 256c0 17.7-14.3 32-32 32L48 288c-17.7 0-32-14.3-32-32s14.3-32 32-32l352 0c17.7 0 32 14.3 32 32z" />
+                <path d="M64 80c-8.8 0-16 7.2-16 16V416c0 8.8 7.2 16 16 16H384c8.8 0 16-7.2 16-16V96c0-8.8-7.2-16-16-16H64zM0 96C0 60.7 28.7 32 64 32H384c35.3 0 64 28.7 64 64V416c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V96zM152 232H296c13.3 0 24 10.7 24 24s-10.7 24-24 24H152c-13.3 0-24-10.7-24-24s10.7-24 24-24z" />
               </svg>
             ) : (
-              <svg
-                className="studentCard__showOrCollapseAllScoresIcon"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24">
-                <path d="M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z" />
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                <path d="M64 80c-8.8 0-16 7.2-16 16V416c0 8.8 7.2 16 16 16H384c8.8 0 16-7.2 16-16V96c0-8.8-7.2-16-16-16H64zM0 96C0 60.7 28.7 32 64 32H384c35.3 0 64 28.7 64 64V416c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V96zM200 344V280H136c-13.3 0-24-10.7-24-24s10.7-24 24-24h64V168c0-13.3 10.7-24 24-24s24 10.7 24 24v64h64c13.3 0 24 10.7 24 24s-10.7 24-24 24H248v64c0 13.3-10.7 24-24 24s-24-10.7-24-24z" />
               </svg>
             )}
           </button>
