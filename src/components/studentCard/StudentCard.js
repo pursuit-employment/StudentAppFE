@@ -33,12 +33,23 @@ const StudentCard = ({ student }) => {
             {firstName} {lastName}
           </div>
           <button
-            className="studentCard__showOrCollapseAllScoresIcon"
-            onClick={toggleShowAllStudentScores}>
+            onClick={toggleShowAllStudentScores}
+            className="studentCard__showOrCollapseAllScoresIcon">
             {toggleShowAllStudentScoresBool ? (
-              <span class="material-symbols-outlined">-</span>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                {" "}
+                Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com
+                License - https://fontawesome.com/license (Commercial License)
+                Copyright 2023 Fonticons, Inc.
+                <path d="M432 256c0 17.7-14.3 32-32 32L48 288c-17.7 0-32-14.3-32-32s14.3-32 32-32l352 0c17.7 0 32 14.3 32 32z" />
+              </svg>
             ) : (
-              <span class="material-symbols-outlined">+</span>
+              <svg
+                className="studentCard__showOrCollapseAllScoresIcon"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24">
+                <path d="M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z" />
+              </svg>
             )}
           </button>
         </div>
