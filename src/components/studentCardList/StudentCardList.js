@@ -6,21 +6,21 @@ import "./StudentCardList.scss";
 
 const StudentCardList = ({ student }) => {
   // set hook for student data
-  const API = "https://api.hatchways.io/assessment/students";
+  const API = "https://studentappback.onrender.com";
   const [studentMasterData, setStudentMasterData] = useState([]);
   const [filteredStudentData, setFilteredStudentData] = useState([]);
 
   // fetch data from https://api.hatchways.io/assessment/students
   useEffect(() => {
     axios
-      .get(`${API}`)
+      .get(`${API}/students`)
       .then((res) => {
-        // console.log("RES", res.data.students);
-        setStudentMasterData(res.data.students);
-        setFilteredStudentData(res.data.students);
+        console.log("RES", res.data);
+        setStudentMasterData(res.data.data);
+        setFilteredStudentData(res.data.data);
       })
       .catch((err) => {
-        console.error(err);
+        console.error(err.message);
       });
   }, []);
 

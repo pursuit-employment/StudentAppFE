@@ -3,7 +3,7 @@ import "./StudentCard.scss";
 import AddIcon from "@mui/icons-material/Add";
 
 const StudentCard = ({ student }) => {
-  const { firstName, lastName, email, city, company, skill, pic, grades } =
+  const { firstName, lastName, email, city, company, skill, pic, grades, id } =
     student;
   const studentGrades = [...student.grades];
 
@@ -61,12 +61,14 @@ const StudentCard = ({ student }) => {
             {grades.map((grade, idx) => {
               const renderedIdx = idx + 1;
               return (
-                <div className="studentCard__score">
+                <div key={id} className="studentCard__score">
                   <div className="studentCard__renderedIndex">
                     {`Grade ${renderedIdx}:`}{" "}
                   </div>{" "}
                   <div className="studentCard__scoreSpacer" />
-                  <div className="studentCard__grade">{`${grade}%`}</div>
+                  <div
+                    key={`${id}-${firstName}-${lastName}`}
+                    className="studentCard__grade">{`${grade}%`}</div>
                 </div>
               );
             })}
