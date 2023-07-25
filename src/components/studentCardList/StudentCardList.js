@@ -17,16 +17,20 @@ function StudentCardList() {
       />
 
       {loadingData ? (
-        <NoStudentsDisplayed message={"Loading...."} />
+        <NoStudentsDisplayed 
+        message={"Loading...."} />
       ) : 
       searchResult.length > 0 ? (
         <section className="studentCardList_cards">
           {searchResult.map((el) => (
-            <StudentCard key={uuidv4()} studentObj={el} />
+            <StudentCard 
+            key={uuidv4()} 
+            studentObj={el} />
           ))}
         </section>
       ) : (
-        <NoStudentsDisplayed message={"Student Not Found"} />
+        <NoStudentsDisplayed 
+        message={"Student Not Found"} />
       )}
     </div>
   );
