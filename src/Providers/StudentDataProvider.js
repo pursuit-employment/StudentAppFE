@@ -5,17 +5,20 @@ export const StudentData = createContext();
 export function useStudentData() {
   return useContext(StudentData);
 }
+const API = process.env.REACT_APP_API_URL
 
 function StudentDataProvider({ children }) {
   const [studentDataArr, setStudentDataArr] = useState([]);
   const [searchResult, setSearchResult] = useState([]);
+  const [loadingData, setLoadingData] = useState(true)
 
   useEffect(() => {
     axios
-      .get("https://api.hatchways.io/assessment/students")
+      .get(`${API}/students`)
       .then(({ data }) => {
-        setStudentDataArr(data.students);
-        setSearchResult(data.students);
+        setStudentDataArr(data);
+        setSearchResult(data);
+        setLoadingData(false)
       })
       .catch((err) => console.log(err));
   }, []);
@@ -27,6 +30,7 @@ function StudentDataProvider({ children }) {
         setStudentDataArr,
         searchResult,
         setSearchResult,
+        loadingData
       }}
     >
       {children}

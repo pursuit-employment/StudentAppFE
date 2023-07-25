@@ -2,11 +2,11 @@ import { useStudentData } from "../../providers/StudentDataProvider";
 import { v4 as uuidv4 } from "uuid";
 import StudentCard from "../studentCard/StudentCard";
 import SearchFilter from "../searchFilter/SearchFilter";
-import NoSearchResults from "../noSearchResults/NoSearchResults";
+import NoStudentsDisplayed from "../noSearchResults/NoStudentsDisplayed";
 import "./StudentCardList.scss";
 
 function StudentCardList() {
-  const { studentDataArr, searchResult, setSearchResult } = useStudentData();
+  const { studentDataArr, searchResult, setSearchResult, loadingData } = useStudentData();
 
   return (
     <div className="studentCardList">
@@ -16,13 +16,15 @@ function StudentCardList() {
       />
 
       <section className="studentCardList_cards">
-        {searchResult.length === 0 ? (
-          <NoSearchResults />
-        ) : (
-          searchResult.map((el) => (
-            <StudentCard key={uuidv4()} studentObj={el} />
-          ))
-        )}
+        {loadingData ?
+          <NoStudentsDisplayed message={"Loading...."} /> :
+
+          searchResult.length > 0  ? 
+          searchResult.map((el) => ( 
+          <StudentCard key={uuidv4()} studentObj={el} />
+          )) :
+          <NoStudentsDisplayed message={"Student Not Found"} />
+        }
       </section>
     </div>
   );
