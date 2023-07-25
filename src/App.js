@@ -1,6 +1,8 @@
-import './App.scss';
+import "./App.scss";
+import { useState, useEffect } from "react";
+import axios from "axios";
 
-import StudentCardList from './components/studentCardList/StudentCardList';
+import StudentCardList from "./components/studentCardList/StudentCardList";
 
 function App() {
   return (
