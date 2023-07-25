@@ -6,7 +6,8 @@ import NoStudentsDisplayed from "../noSearchResults/NoStudentsDisplayed";
 import "./StudentCardList.scss";
 
 function StudentCardList() {
-  const { studentDataArr, searchResult, setSearchResult, loadingData } = useStudentData();
+  const { studentDataArr, searchResult, setSearchResult, loadingData } =
+    useStudentData();
 
   return (
     <div className="studentCardList">
@@ -15,17 +16,18 @@ function StudentCardList() {
         setSearchResult={setSearchResult}
       />
 
-      <section className="studentCardList_cards">
-        {loadingData ?
-          <NoStudentsDisplayed message={"Loading...."} /> :
-
-          searchResult.length > 0  ? 
-          searchResult.map((el) => ( 
-          <StudentCard key={uuidv4()} studentObj={el} />
-          )) :
-          <NoStudentsDisplayed message={"Student Not Found"} />
-        }
-      </section>
+      {loadingData ? (
+        <NoStudentsDisplayed message={"Loading...."} />
+      ) : 
+      searchResult.length > 0 ? (
+        <section className="studentCardList_cards">
+          {searchResult.map((el) => (
+            <StudentCard key={uuidv4()} studentObj={el} />
+          ))}
+        </section>
+      ) : (
+        <NoStudentsDisplayed message={"Student Not Found"} />
+      )}
     </div>
   );
 }

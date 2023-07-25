@@ -1,5 +1,10 @@
-.noSearchResults {
+.noStudentsDisplayed {
     font-size: 30px;
     text-align: center;
-    margin-top: 5vh;
+    margin-top:20vh;
+   
+    & span {
+        font-weight: 600;
+        font-size: 20px;
+    }
 }
