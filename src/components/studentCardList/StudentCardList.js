@@ -1,4 +1,5 @@
 import {useState, useEffect} from 'react';
+import {Link} from 'react-router-dom';
 
 import StudentCard from "../studentCard/StudentCard";
 
@@ -17,16 +18,14 @@ const StudentCardList = () => {
         fetch('https://api.hatchways.io/assessment/students')
         .then(response => response.json())
         .then(data => {
-            setTimeout(function(){
-                if(true || data.status === 403){
-                    throw {status: 'error', message: 'An error occurred.'}
-                } else {
-                    setError(false);
-                    setStudents(data.students);
-                    setLoading(false);
-                }
-            }, 2000)
-            
+          
+            if( data.status === 403){
+                throw {status: 'error', message: 'An error occurred.'}
+            } else {
+                setError(false);
+                setStudents(data.students);
+                setLoading(false);
+            }
         }).catch(error => {
             setError(error);
             setLoading(false)
@@ -38,7 +37,12 @@ const StudentCardList = () => {
         <div className={`studentCardList ${error &&  'studentCardList--error'}`}>
             {!loading && students.length > 0 && !error && students.map(student => {
                 // render a student card for every student
-                return (<StudentCard student={student} />)
+
+                return (
+                    <Link to={`student/${student.id}`} state={{student}}>
+                        <StudentCard studentInfo={student} />
+                    </Link>
+                )
             })}
 
             {loading && <div className="studentCardList__empty">Loading...</div>}
