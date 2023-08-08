@@ -2,6 +2,10 @@ import { Routes, Route } from "react-router-dom";
 
 import './App.scss';
 
+// LAYOUT
+import Navbar from "./layout/navbar/Navbar";
+
+// COMPONENTS
 import StudentCardList from './components/studentCardList/StudentCardList';
 
 // PAGES
@@ -10,6 +14,7 @@ import StudentDetail from "./pages/StudentDetail";
 function App() {
   return (
     <div>
+       <Navbar />
       <Routes>
         <Route index element={ <StudentCardList />} />
         <Route path='student/:id' element={<StudentDetail />} />

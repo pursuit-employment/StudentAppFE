@@ -1,0 +1,36 @@
+.navbar {
+    background-color: white;
+    height: 60px;
+    font-size: 1.2em;
+
+    &__container {
+        max-width: 1100px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        line-height: 60px;
+    }
+
+    ul {
+        padding: 0;
+        margin: 0;
+    }
+
+    li {
+        display: inline-block;
+        text-decoration: none;
+        margin-right: 20px;
+        width: 100px;
+        text-align: center;
+
+        &:hover {
+            background-color:  #2E8BC0;
+            color: white;
+        }
+    }
+
+    a {
+        text-decoration: none;
+        color: inherit;
+    }
+}
