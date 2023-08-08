@@ -9,6 +9,7 @@
         display: flex;
         justify-content: space-between;
         line-height: 60px;
+        margin: 0 20px;
     }
 
     ul {
@@ -32,5 +33,32 @@
     a {
         text-decoration: none;
         color: inherit;
+    }
+}
+
+
+// styles that apply to mobile
+@media only screen and (max-width: 440px) {
+
+    .navbar {
+        &__items {
+            display: none;
+            &--show {
+                display: block;
+                width: 100%;
+                background: white;
+                top: 60px;
+                left: 0;
+                position: absolute;
+
+                li { 
+                    display: block;
+                }
+            }
+        }
+
+        &__hamburger {
+            font-size: 1.4em;
+        }
     }
 }

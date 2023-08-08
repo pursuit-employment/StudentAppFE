@@ -26,3 +26,9 @@
         font-size: 2em;
     }
 }
+
+@media only screen and (max-width: 440px) {
+    .studentCardList {
+        width: unset;
+    }
+}
